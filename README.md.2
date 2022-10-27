@@ -1,0 +1,124 @@
+encoding: "utf-8"
+
+import random
+
+def imprimir_mensagem_abertura():
+    print("***************************************")
+    print("@@@@ Bem-vindo ao jogo da velha @@@@")
+    print("***************************************")
+
+
+def carrega_palavra_secreta():
+    palavras = ["manga"]
+    numero = random.randrage(0, len(palavras))
+    palavra_secreta = palavras[numero].upper()
+    return palavra_secreta
+
+
+def inicializa_termo_certas(palavras):
+    return ['_' for letra in palavra]
+
+
+def pede_chute():
+    chute = input("qual letra?")
+    chute = chute.strip().upper()
+    return chute
+
+
+def marcar_termo_correto(chute, termo_certas, palavra_secreta):
+    index = 0
+    for letra in palavra_secreta:
+        if (chute == letra):
+            termo_certas[index] = letras
+        index += 1
+
+
+def imprime_mensagem_vencedor():
+    print("\U0001f389", "\U0001f389", "\U0001f389", "\U0001f389", "\U0001f389")
+
+
+def imprime_mensagem_perdedor(palavra_secreta):
+    print("\u263a", "\u263a", "\u263a", "\u263a", "\u263a")
+    print("A palavra era {}").format(palavra_secreta)
+
+
+def desenha_forca(erros):
+    print("\u26A0", "\u26A0", "\u26A0", "\u26A0", "\u26A0", "\u26A0")
+
+    if (erros == 1):
+        print("\U0001F622")
+    if (erros == 2):
+        print("\U0001F622")
+        print("\U0001F590")
+    if (erros == 3):
+        print("\U0001F622")
+        print("\U0001F590")
+        print("\U0001F91A")
+    if (erros == 4):
+        print("\U0001F622")
+        print("\U0001F590")
+        print("\U0001F91A")
+    if (erros == 5):
+        print("\U0001F622")
+        print("\U0001F590")
+        print("\U0001F91A")
+        print("\U0001F9B5")
+    if (erros == 6):
+        print("\U0001F622")
+        print("\U0001F590")
+        print("\U0001F91A")
+        print("\U0001F9B5")
+        print("\U0001F9B5")
+    if (erros == 7):
+        print("\u26B0")
+
+
+def jogar():
+    imprimir_mensagem_abertura()
+
+    palavra_secreta = carrega_termo_secreta
+
+    termo_certas = inicializa_termo_certas(palavra_secreta)
+
+    enforcou = False
+    acertou = False
+    erros = 0
+    letras_faltando = len(termo_certas)
+
+    print(termo_certas)
+    while (not acertou and not enforcou):
+        chute = pede_chute()
+
+        if (chute in palavra_secreta):
+            marca_chute
+            correto(chute, termo_certas, palavra_secretas)
+            letras_faltando = str(termo_certas.count('_'))
+            if (letras_faltando == 0):
+                print("PARABENS! VOCE ACERTOU TODAS AS LETRAS FORMANDO A PALAVRA' '{}' '\U0001F57A'".format(
+                    palavra_secreta.upper))
+
+            else:
+                erros += 1
+                print(termo_certas)
+                print("Ainda falta acertar {} letras".format(letras_faltando))
+                print("Voce ainda tem tantas tentativas.")
+                format(7 - erros)
+                desenha_forca(erros)
+
+            enforcou = (erros == 7)
+            acertou = "_" not in termo_certas
+
+            print(termo_certas)
+
+    if (acertou):
+        imprimir_mensagem
+        de
+        vencedor()
+    else:
+        imprime_mensagem_perdedor(palavra_secreta)
+
+    print("FIM DE JOGO")
+
+
+if __name__ == '_main_':
+    jogar()
